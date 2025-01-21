@@ -17,7 +17,6 @@
 
             newsprite.y = 400;
             newsprite.x = 300;
-            newsprite.width = 200;
             newsprite.height = 4;
             newsprite.color = Color.white;
         }

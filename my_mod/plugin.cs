@@ -20,6 +20,8 @@ namespace welp // @sl_objects of the space init
         //Add hooks to the hooks for the mod work bc the codes mod can't run without hooks
         public void OnEnable()
         {
+            sanity_bar_aqctually_a_sanity_bar.newsprite.width = 200;
+
             Logger = base.Logger;                                                           //for the log base
             pom_objects();                                                                  //register POM objects
             On.RainWorld.Update += UpdateTimerFrames;                                       //update the timer frames for the Timer helper
