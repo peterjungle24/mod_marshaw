@@ -20,12 +20,12 @@ namespace welp // @sl_objects of the space init
         //Add hooks to the hooks for the mod work bc the codes mod can't run without hooks
         public void OnEnable()
         {
-            sanity_bar_aqctually_a_sanity_bar.newsprite.width = 200;
+            //sanity_bar_aqctually_a_sanity_bar.newsprite.width = 200;
 
             Logger = base.Logger;                                                           //for the log base
             pom_objects();                                                                  //register POM objects
             On.RainWorld.Update += UpdateTimerFrames;                                       //update the timer frames for the Timer helper
-            On.Room.AddObject += Medallion.add;                                             //add the meddallions to the 'Room.Loaded'
+            On.Room.AddObject += Medallion.add;                                             //add the meddallions to the 'Room.Loaded' 
 
             //please, dont enter on this site, you will see my favourite cyan lizard ;-;
             //https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTK8R7tsGQsYuwrsrv6VRIbSgcOI9rr1OZ0w&s
