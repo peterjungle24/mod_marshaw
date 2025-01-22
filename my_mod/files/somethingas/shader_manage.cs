@@ -8,7 +8,7 @@
     }
     public class sanity_bar_aqctually_a_sanity_bar
     {
-        public static FSprite newsprite = new FSprite("Futile_White");                           // uses the fucking atlas [ Futile_White ]
+        public static FSprite newsprite = new FSprite("Futile_White");
         public static ManualLogSource Logger { get => Plugin.Logger; }
 
         public static void add_bar(RoomCamera self, Player player)
@@ -19,6 +19,8 @@
             newsprite.x = 300;
             newsprite.height = 4;
             newsprite.color = Color.white;
+
+            newsprite.anchorX = 0;
         }
     }
     public class sanity_bar
