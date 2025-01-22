@@ -20,8 +20,6 @@ namespace welp // @sl_objects of the space init
         //Add hooks to the hooks for the mod work bc the codes mod can't run without hooks
         public void OnEnable()
         {
-            //sanity_bar_aqctually_a_sanity_bar.newsprite.width = 200;
-
             Logger = base.Logger;                                                           //for the log base
             pom_objects();                                                                  //register POM objects
             On.RainWorld.Update += UpdateTimerFrames;                                       //update the timer frames for the Timer helper
@@ -48,6 +46,19 @@ namespace welp // @sl_objects of the space init
             //////// test
             On.Player.Update += fireball_collision;
             On.Room.AddObject += i_added_this_hook;
+            On.Player.Update += show_mouse_pos_at_keypress;
+        }
+
+        private void show_mouse_pos_at_keypress(On.Player.orig_Update orig, Player self, bool eu)
+        {
+            var mousepos = Input.mousePosition;
+
+            if (inputs.keyboard_check_down(KeyCode.M) )
+            {
+                Debug.Log($"MOUSE POS: {mousepos}");
+            }
+            
+            orig(self, eu);
         }
 
         private void i_added_this_hook(On.Room.orig_AddObject orig, Room self, UpdatableAndDeletable obj)
@@ -137,6 +148,7 @@ namespace welp // @sl_objects of the space init
             try
             {
                 Logger.LogInfo("THIS IS THE GIT BUILD");
+                sanity_bar_aqctually_a_sanity_bar.newsprite.width = 200;
 
                 if (ModManager.MSC)
                 {

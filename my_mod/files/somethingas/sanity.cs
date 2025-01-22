@@ -49,6 +49,11 @@ namespace sanity
                 {
                     sanity_bar_aqctually_a_sanity_bar.newsprite.width = 0.10f;
                 }
+                if (sanity_bar_aqctually_a_sanity_bar.newsprite.width >= 200f)
+                {
+                    sanity_bar_aqctually_a_sanity_bar.newsprite.width = 200f;
+                }
+
             }
         }
 
