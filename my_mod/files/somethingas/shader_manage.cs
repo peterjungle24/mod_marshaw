@@ -15,12 +15,16 @@
         {
             self.ReturnFContainer("HUD").AddChild(newsprite);    //put the sprite in a HUD layer
 
-            newsprite.y = 400;
-            newsprite.x = 300;
-            newsprite.height = 4;
+            newsprite.height = 8;
             newsprite.color = Color.white;
+        }
 
+        public static void initialize()
+        {
             newsprite.anchorX = 0;
+            newsprite.y = 672;
+            newsprite.x = 1236;
+            newsprite.width = 200f;
         }
     }
     public class sanity_bar

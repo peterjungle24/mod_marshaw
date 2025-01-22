@@ -56,6 +56,7 @@ namespace welp // @sl_objects of the space init
             if (inputs.keyboard_check_down(KeyCode.M) )
             {
                 Debug.Log($"MOUSE POS: {mousepos}");
+                Debug.Log($"BAR POS: {sanity_bar_aqctually_a_sanity_bar.newsprite.x}, {sanity_bar_aqctually_a_sanity_bar.newsprite.y}");
             }
             
             orig(self, eu);
@@ -148,12 +149,14 @@ namespace welp // @sl_objects of the space init
             try
             {
                 Logger.LogInfo("THIS IS THE GIT BUILD");
-                sanity_bar_aqctually_a_sanity_bar.newsprite.width = 200;
 
                 if (ModManager.MSC)
                 {
                     Logger.LogInfo(">>MSC Is Enabled!<<");
                 }
+
+                // init.
+                sanity_bar_aqctually_a_sanity_bar.initialize();
 
                 //ASSIGN FIELDS / CREATE VARIABLES
 

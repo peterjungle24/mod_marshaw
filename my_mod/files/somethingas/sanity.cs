@@ -20,8 +20,8 @@ namespace sanity
         {
             if (self.slugcatStats.name == marshaw)                                              //check if the slugcat its Marshwawwww
             {
-                shader_manage.sanity_bar.sanityBar_add(self.room.game.cameras[0], self);        //draw the bar and the circles
-                shader_manage.sanity_bar.Lerp_in_CSharp_still_weird_beter_in_GMK(self.room.game.cameras[0]);
+                //shader_manage.sanity_bar.sanityBar_add(self.room.game.cameras[0], self);        //draw the bar and the circles
+                //shader_manage.sanity_bar.Lerp_in_CSharp_still_weird_beter_in_GMK(self.room.game.cameras[0]);
                 float alphaFactor = 0.05f;                                                      //the float consumes/desconsumes
 
                 if (Input.GetKey(KeyCode.W))                                                    //increase
@@ -45,6 +45,23 @@ namespace sanity
                     sanity_bar_aqctually_a_sanity_bar.newsprite.width += factor;
                 }
 
+                if (Input.GetKey(KeyCode.Keypad2) )
+                {
+                    sanity_bar_aqctually_a_sanity_bar.newsprite.y += 4f;
+                }
+                else if (Input.GetKey(KeyCode.Keypad4) )
+                {
+                    sanity_bar_aqctually_a_sanity_bar.newsprite.x += 4f;
+                }
+                else if (Input.GetKey(KeyCode.Keypad8) )
+                {
+                    sanity_bar_aqctually_a_sanity_bar.newsprite.y -= 4f;
+                }
+                else if (Input.GetKey(KeyCode.Keypad6) )
+                {
+                    sanity_bar_aqctually_a_sanity_bar.newsprite.x -= 4f;
+                }
+
                 if (sanity_bar_aqctually_a_sanity_bar.newsprite.width <= 0.10f)
                 {
                     sanity_bar_aqctually_a_sanity_bar.newsprite.width = 0.10f;
@@ -53,7 +70,6 @@ namespace sanity
                 {
                     sanity_bar_aqctually_a_sanity_bar.newsprite.width = 200f;
                 }
-
             }
         }
 
