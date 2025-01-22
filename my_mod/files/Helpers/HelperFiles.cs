@@ -77,6 +77,10 @@
         {
             return Path.Combine("sprites", "colletables", medallion);
         }
+        public static string GetAtlasFile(string atlas)
+        {
+            return Path.Combine("sprites", "atlas", atlas);
+        }
         public static string GetFile(string file)
         {
             return AssetManager.ResolveFilePath(file);

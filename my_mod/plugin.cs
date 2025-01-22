@@ -48,54 +48,6 @@ namespace welp // @sl_objects of the space init
             //////// test
             On.Player.Update += fireball_collision;
             On.Room.AddObject += i_added_this_hook;
-            On.Player.Update += dynamic_blinks;
-        }
-
-        private void dynamic_blinks(On.Player.orig_Update orig, Player self, bool eu)
-        {
-            if (inputs.keyboard_check_down(KeyCode.Keypad0) )
-            {
-                self.Blink(0);
-            }
-            if (inputs.keyboard_check_down(KeyCode.Keypad1) )
-            {
-                self.Blink(1);
-            }
-            if (inputs.keyboard_check_down(KeyCode.Keypad2) )
-            {
-                self.Blink(2);
-            }
-            if (inputs.keyboard_check_down(KeyCode.Keypad3) )
-            {
-                self.Blink(3);
-            }
-            if (inputs.keyboard_check_down(KeyCode.Keypad4) )
-            {
-                self.Blink(4);
-            }
-            if (inputs.keyboard_check_down(KeyCode.Keypad5) )
-            {
-                self.Blink(5);
-            }
-            if (inputs.keyboard_check_down(KeyCode.Keypad6) )
-            {
-                self.Blink(6);
-            }
-            if (inputs.keyboard_check_down(KeyCode.Keypad7) )
-            {
-                self.Blink(7);
-            }
-            if (inputs.keyboard_check_down(KeyCode.Keypad8) )
-            {
-                self.Blink(8);
-            }
-            if (inputs.keyboard_check_down(KeyCode.Keypad9) )
-            {
-                self.Blink(9);
-            }
-
-
-            orig(self, eu);
         }
 
         private void i_added_this_hook(On.Room.orig_AddObject orig, Room self, UpdatableAndDeletable obj)
