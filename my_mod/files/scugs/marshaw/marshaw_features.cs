@@ -243,7 +243,7 @@
             if (self.slugcatStats.name == marshaw)
             {
                 // add the Sanity bar thing
-                sanity.sanity_bar.sanityBar_add(self);
+                SanitySystem.GraphicManage(self);
             }
 
             // add this cooldown bar
@@ -289,7 +289,7 @@
         public static void sanity_hooks()
         {
             On.Player.Update += distance;                                       // [ SANITY ] makes the distance_checker work, in player ev.
-            On.SaveState.SessionEnded += sanity.sanity_bar.reset_sanityBar;     // [ SANITY ] resets the bar when you pass the cycle.
+            On.SaveState.SessionEnded += SanitySystem.ResetSanity ;     // [ SANITY ] resets the bar when you pass the cycle.
         }
 
         #region distance
@@ -300,7 +300,7 @@
             if (self.slugcatStats.name == marshaw)
             {
                 // calls the method that makes everything work
-                sanity.sanity_bar.sanity_calc(self);
+                SanitySystem.SanityCalculate(self);
             }
 
             orig(self, eu);

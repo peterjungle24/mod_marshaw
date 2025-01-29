@@ -12,7 +12,7 @@ namespace welp // @sl_objects of the space init
         public static readonly SlugcatStats.Name slugg = new SlugcatStats.Name("slugg_the_scug");    //@sl_objects of the Slugg
         public static new ManualLogSource Logger { get; private set; }                          //for logs
         private OptionInterface options;                        //options for the remix menu ones LESS GOOOOOOO
-        public static slugg_options slugg_options_tab;           //options for the remix menu ones LESS GOOOOOOO
+        public static REMIX_menuses slugg_options_tab;           //options for the remix menu ones LESS GOOOOOOO
         public static Trigger trg;
 
         // Custom Features to the "marshaw.json"
@@ -53,15 +53,15 @@ namespace welp // @sl_objects of the space init
         {
             var mousepos = Input.mousePosition;
 
-            if (inputs.keyboard_check_down(KeyCode.M) )
+            if (inputs.keyboard_check_down(KeyCode.A) )
             {
-                Debug.Log($"MOUSE POS: {mousepos}");
-                Debug.Log($"BAR POS: {sanity_bar_aqctually_a_sanity_bar.newsprite.x}, {sanity_bar_aqctually_a_sanity_bar.newsprite.y}");
+                Debug.Log($"\nMOUSE POS: {mousepos}");
+                Debug.Log($"CIRCLE BAR POS: {SanityGraphics.graphic.x}, {SanityGraphics.graphic.y}");
+                Debug.Log($"CIRCLE BAR SIZE: {SanityGraphics.graphic.scaleX}, {SanityGraphics.graphic.scaleY}\n");
             }
             
             orig(self, eu);
         }
-
         private void i_added_this_hook(On.Room.orig_AddObject orig, Room self, UpdatableAndDeletable obj)
         {
             var cwt = self.issue();
@@ -157,14 +157,15 @@ namespace welp // @sl_objects of the space init
 
                 // init.
                 sanity_bar_aqctually_a_sanity_bar.initialize();
+                SanityGraphics.Initialize();
 
                 //ASSIGN FIELDS / CREATE VARIABLES
 
                 //CREATE INSTANCES
-                slugg_options_tab = new slugg_options();
+                slugg_options_tab = new REMIX_menuses();
 
                 //REGISTER
-                sanity.sanity_bar.crit_dict_values();
+                SanitySystem.crit_dict_values();
 
                 //SOUNDS
                 sounded.DeathSounds.DeathSound_Init();

@@ -62,7 +62,7 @@
                 //variables.
                 Room room = self.room;
 
-                if (slugg_options.cb_deathNoises.Value == true && self.dead != true)
+                if (REMIX_menuses.cb_deathNoises.Value == true && self.dead != true)
                 {
                     room.PlaySound(DeathSounds.random_sound[UnityEngine.Random.Range(1, DeathSounds.random_sound.Length)], self.mainBodyChunk.pos);
                     room.AddObject(new ShockWave(self.mainBodyChunk.pos, 130f, 50f, 10, true));

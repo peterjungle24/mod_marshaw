@@ -39,7 +39,6 @@ global using p.medallion;
 global using sounded;
 global using pom_objects;
 global using welp;
-global using thing_storage;
 global using Sprites;
 global using particle_manager;
 global using shader_manage;

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("my_mod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e56d65a587f6221fec59b18f4c885a0e8e7ea09c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf1fd7dcf572821e6dbb4357ea9515b5e7d0e27a")]
 [assembly: System.Reflection.AssemblyProductAttribute("my_mod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("my_mod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
