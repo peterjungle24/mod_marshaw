@@ -12,7 +12,7 @@ namespace welp // @sl_objects of the space init
         public static readonly SlugcatStats.Name slugg = new SlugcatStats.Name("slugg_the_scug");    //@sl_objects of the Slugg
         public static new ManualLogSource Logger { get; private set; }                          //for logs
         private OptionInterface options;                        //options for the remix menu ones LESS GOOOOOOO
-        public static slugg_options slugg_options_tab;           //options for the remix menu ones LESS GOOOOOOO
+        public static REMIX_menuses slugg_options_tab;           //options for the remix menu ones LESS GOOOOOOO
         public static Trigger trg;
 
         // Custom Features to the "marshaw.json"
@@ -20,12 +20,10 @@ namespace welp // @sl_objects of the space init
         //Add hooks to the hooks for the mod work bc the codes mod can't run without hooks
         public void OnEnable()
         {
-            sanity_bar_aqctually_a_sanity_bar.newsprite.width = 200;
-
             Logger = base.Logger;                                                           //for the log base
             pom_objects();                                                                  //register POM objects
             On.RainWorld.Update += UpdateTimerFrames;                                       //update the timer frames for the Timer helper
-            On.Room.AddObject += Medallion.add;                                             //add the meddallions to the 'Room.Loaded'
+            On.Room.AddObject += Medallion.add;                                             //add the meddallions to the 'Room.Loaded' 
 
             //please, dont enter on this site, you will see my favourite cyan lizard ;-;
             //https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTK8R7tsGQsYuwrsrv6VRIbSgcOI9rr1OZ0w&s
@@ -48,8 +46,22 @@ namespace welp // @sl_objects of the space init
             //////// test
             On.Player.Update += fireball_collision;
             On.Room.AddObject += i_added_this_hook;
+            On.Player.Update += show_mouse_pos_at_keypress;
         }
 
+        private void show_mouse_pos_at_keypress(On.Player.orig_Update orig, Player self, bool eu)
+        {
+            var mousepos = Input.mousePosition;
+
+            if (inputs.keyboard_check_down(KeyCode.A) )
+            {
+                Debug.Log($"\nMOUSE POS: {mousepos}");
+                Debug.Log($"CIRCLE BAR POS: {SanityGraphics.graphic.x}, {SanityGraphics.graphic.y}");
+                Debug.Log($"CIRCLE BAR SIZE: {SanityGraphics.graphic.scaleX}, {SanityGraphics.graphic.scaleY}\n");
+            }
+            
+            orig(self, eu);
+        }
         private void i_added_this_hook(On.Room.orig_AddObject orig, Room self, UpdatableAndDeletable obj)
         {
             var cwt = self.issue();
@@ -143,13 +155,17 @@ namespace welp // @sl_objects of the space init
                     Logger.LogInfo(">>MSC Is Enabled!<<");
                 }
 
+                // init.
+                sanity_bar_aqctually_a_sanity_bar.initialize();
+                SanityGraphics.Initialize();
+
                 //ASSIGN FIELDS / CREATE VARIABLES
 
                 //CREATE INSTANCES
-                slugg_options_tab = new slugg_options();
+                slugg_options_tab = new REMIX_menuses();
 
                 //REGISTER
-                sanity.sanity_bar.crit_dict_values();
+                SanitySystem.crit_dict_values();
 
                 //SOUNDS
                 sounded.DeathSounds.DeathSound_Init();
