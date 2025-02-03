@@ -59,7 +59,11 @@ namespace welp // @sl_objects of the space init
                 Debug.Log($"CIRCLE BAR POS: {SanityGraphics.graphic.x}, {SanityGraphics.graphic.y}");
                 Debug.Log($"CIRCLE BAR SIZE: {SanityGraphics.graphic.scaleX}, {SanityGraphics.graphic.scaleY}\n");
             }
-            
+            if (inputs.keyboard_check(KeyCode.Q) )
+            {
+                self.room.AddObject(new PlayerBubbles(self, 1f, 0.10f, 0.1f, Color.gray) );
+            }
+
             orig(self, eu);
         }
         private void i_added_this_hook(On.Room.orig_AddObject orig, Room self, UpdatableAndDeletable obj)

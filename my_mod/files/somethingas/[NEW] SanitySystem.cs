@@ -133,7 +133,7 @@
                         if (dist <= 120f)
                         {
                             //Get the sanity Svalue for this creature
-                            accumulative += get_sanity_value(creature.Template);
+                            accumulative += CreatureValues(creature.Template);
                         }
                     }
                     else
@@ -150,8 +150,8 @@
 
             //if creature its in the distance_checker, will have the [ threat ] flag
             bool threat = accumulative > 0;
-            // i dont remember
-            float idwtwton = 0.0015f;
+            // accumulative value for regen
+            float regen_factoir = 0.0001f;
             // a timer
             float timer = 100f;
 
@@ -163,7 +163,7 @@
             {
                 if (lastThreat >= timer)
                 {
-                    SanityGraphics.graphic.alpha += idwtwton;
+                    SanityGraphics.graphic.alpha += regen_factoir;
                 }
 
                 lastThreat += 1f;
@@ -186,11 +186,11 @@
         #endregion
         #region The Values
 
-        public static float get_sanity_value(CreatureTemplate crit)
+        public static float CreatureValues(CreatureTemplate crit)
         {
             //Constants variables CAN'T BE CHANGED.
             const float def = 0.0005f;  //Default Svalue.
-            const float friendly_regen = 0.0035f;   //Sanity change may be positive or negative
+            const float friendly_regen = 0.0010f;   //Sanity change may be positive or negative
 
             if (crit == null)
             {
@@ -198,13 +198,9 @@
             }
 
             //....i think i already defined
-            var crit_type = crit.type;                  //type
-            var crit_ancestor = crit.ancestor;     //ancestors
-            float value;                                //Svalue
-
-            ///_______________________________________________________
-            ///             MedalType
-            ///_______________________________________________________
+            var crit_type = crit.type;          //type
+            var crit_ancestor = crit.ancestor;  //ancestors
+            float value;                        //Svalue
 
             //check the crit_type
             if (crit_dict.TryGetValue(crit_type, out value) )
